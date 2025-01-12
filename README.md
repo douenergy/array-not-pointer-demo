@@ -44,3 +44,18 @@ This example causes a segmentation fault because the linker places the pointer v
 
 ### How to Fix
 Change the declaration in `main.c` from `extern char *array` to `extern char array[]` to fix the segmentation fault.
+
+
+### asm
+![wrong](./wrong.png) 
+
+```
+str x8, [x9]       ; Tries to use message directly as a pointer
+```
+![correct](./correct.png)
+
+```
+ldr x8, [x8]       ; Properly loads the address of the array
+```
+
+This single instruction difference explains why the pointer version crashes - it tries to use the array's data as a pointer address rather than loading the actual array address.

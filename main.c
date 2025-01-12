@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 // WRONG: declaring array as pointer
-extern char *message;
+// extern char *message;
 
 // CORRECT:
-// extern char message[];
+extern char message[];
 
 int main(void) {
     // This will likely cause segmentation fault
