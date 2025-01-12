@@ -47,11 +47,14 @@ Change the declaration in `main.c` from `extern char *array` to `extern char arr
 
 
 ### asm
+#### `extern char *array`
 ![wrong](./wrong.png) 
 
 ```
 str x8, [x9]       ; Tries to use message directly as a pointer
 ```
+
+#### `extern char array[]; `
 ![correct](./correct.png)
 
 ```
